@@ -27,7 +27,7 @@ AFRAME.registerSystem('interactions', {
         // fuseTimeout: 1500 = tempo de duração do fuse 
         // raycaster="objects: .clickable" =  define em quais objetos serão clicáveis, ou seja, em quais irão disparar o fuse (ex. <a-entity class=".clickable">) 
         // animation = define as animações para cada evento
-        entity.setAttribute('cursor', 'fuse: true; fuseTimeout: 1500');
+        entity.setAttribute('cursor', 'fuse: true; fuseTimeout: 1000');
         entity.setAttribute('position', '0 0 -1');
         entity.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
         entity.setAttribute('material', 'color: black; shader: flat');
@@ -36,12 +36,22 @@ AFRAME.registerSystem('interactions', {
         // Adicionando as animações
         entity.setAttribute(
             'animation__fusing',
-            'property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1'
+            'property: scale; startEvents: fusing; easing: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1'
         );
 
         entity.setAttribute(
-            'animation__mouseleave',
-            'property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1'
+            'animation__mouseleave__shape',
+            'property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 100; to: 1 1 1;'
+        );
+
+        entity.setAttribute(
+            'animation__mouseleave__color',
+            'property: material.color: black; startEvents: mouseleave;'
+        );
+
+        entity.setAttribute(
+            'animation__mouseenter',
+            'property: material.color: gray; startEvents: mouseenter;'
         );
 
         var camera = document.querySelector('a-entity[camera]');
