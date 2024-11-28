@@ -1,0 +1,19 @@
+{
+  "name": "a-frame-tests",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A-frame Tests",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "babel-loader": "^9.2.1",
+    "nodemon": "^3.1.7"
+  }
+}
