@@ -25,7 +25,7 @@ AFRAME.registerSystem('interactions', {
         // Adicionando os atributos ao elemento
         // fuse: true = habilita o "click" ao colocar o ponteiro circular em cima do objeto 
         // fuseTimeout: 1500 = tempo de duração do fuse 
-        // raycaster="objects: .clickable" =  define em quais objetos serão clicáveis, ou seja, em quais irão disparar o fuse (ex. <a-entity class=".clickable">) 
+        // raycaster="objects: .clickable" =  define em quais objetos serão clicáveis, ou seja, em quais irão disparar o fuse (ex. <a-entity class="clickable">) 
         // animation = define as animações para cada evento
         entity.setAttribute('cursor', 'fuse: true; fuseTimeout: 1000');
         entity.setAttribute('position', '0 0 -1');

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-platform Interaction</title>
+
+    <!-- A-Frame 1.5.0 -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <!-- A-Frame Extras -->
+    <script src="../checkpoint/aframe-extras.min.js"></script>
+
+    <!-- A-Frame Interactions -->
+    <script src="../interactions/aframe-interactions-system.js"></script>
+
+    <script>
+        AFRAME.registerComponent('click-component-test', {
+            init: function () {
+                this.el.addEventListener('click', function () {
+                    alert('objeto clicado');
+                });
+            }
+        });
+    </script>
+
+</head>
+<body>
+    <!-- Habilita a esterescopia no celular xr-mode-ui="cardboardModeEnabled:true" -->
+    <a-scene xr-mode-ui="cardboardModeEnabled:true" interactions="raycaster:.clickable">
+
+        <!-- Câmera com configurações para o checkpoint -->
+        <a-entity id="rig" movement-controls="controls: checkpoint, keyboard" checkpoint-controls="mode: teleport">
+            <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: false"></a-entity>
+        </a-entity>
+       
+        <!-- Objeto clicável -->
+        <a-box class="clickable" click-component-test position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+        
+        <!-- Objeto como um checkpoint e  clickable-->
+        <a-sphere checkpoint class="clickable" position="0 1.25 -5" radius="1" color="#EF2D5E"></a-sphere>
+        
+        <!-- Objeto como um checkpoint e clickable-->
+        <a-cylinder checkpoint class="clickable" position="7 0.75 -15" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+        <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+</body>
+</html>
